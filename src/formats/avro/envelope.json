@@ -1,0 +1,28 @@
+{
+  "name": "AvroFormatEnvelope",
+  "type": "record",
+  "fields": [
+    {
+      "name": "headers",
+      "type": {
+        "name": "AvroFormatEnvelopeHeaders",
+        "type": "record",
+        "fields": [
+          {
+            "name": "schemaFingerprint",
+            "doc": "The canonical Avro schema fingerprint (16 byte hash)",
+            "type": {
+              "name": "AvroSchemaFingerprintMD5",
+              "type": "fixed",
+              "size": 16
+            }
+          }
+        ]
+      }
+    },
+    {
+      "name": "binaryData",
+      "type": "bytes"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+.nyc_output
+.vscode
+coverage
+node_modules
+src
+test
+
+.drone.yml
+.drone.yml.sig
+.DS_Store 
+.flowconfig
+gulpfile.babel.js
+*.bak
+*.log
+*.tar.gz
+*.tmp

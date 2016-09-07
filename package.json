@@ -1,0 +1,119 @@
+{
+  "name": "ebb",
+  "version": "0.0.1",
+  "description": "High performance multi-consumer messaging framework.",
+  "main": "index.js",
+  "scripts": {
+    "test": "(NODE_ENV=test nyc ./node_modules/.bin/gulp test) && gulp babel"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/steve-gray/kafka-flow.git"
+  },
+  "keywords": [
+    "kafka",
+    "avro",
+    "bson",
+    "json"
+  ],
+  "author": "Steve Gray",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/steve-gray/kafka-flow/issues"
+  },
+  "homepage": "https://github.com/steve-gray/kafka-flow#readme",
+  "dependencies": {
+    "avsc": "^4.1.7",
+    "bluebird": "^3.4.6",
+    "no-kafka": "^2.7.0",
+    "protocol-buffers": "^3.1.6"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-core": "^6.14.0",
+    "babel-eslint": "^6.1.2",
+    "babel-plugin-istanbul": "^2.0.1",
+    "babel-plugin-react-require": "^2.1.0",
+    "babel-plugin-transform-bluebird": "^0.1.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.14.0",
+    "babel-plugin-transform-flow-strip-types": "^6.14.0",
+    "babel-plugin-transform-react-jsx": "^6.8.0",
+    "chai": "^3.5.0",
+    "chai-as-promised": "^5.3.0",
+    "eslint-config-airbnb": "^10.0.1",
+    "eslint-plugin-flowtype": "^2.14.0",
+    "eslint-plugin-import": "^1.14.0",
+    "eslint-plugin-jsx-a11y": "^2.2.1",
+    "eslint-plugin-react": "^6.2.0",
+    "fast-async": "^6.0.32",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-eslint": "^3.0.1",
+    "gulp-mocha": "^3.0.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "kafka-tools": "^0.1.2",
+    "mocha": "^3.0.2",
+    "nyc": "^8.1.0",
+    "uuid": "^2.0.2"
+  },
+  "babel": {
+    "plugins": [
+      "transform-react-jsx",
+      "react-require",
+      "fast-async",
+      "transform-bluebird",
+      "transform-es2015-modules-commonjs",
+      "transform-flow-strip-types"
+    ],
+    "env": {
+      "test": {
+        "plugins": [
+          "istanbul"
+        ]
+      }
+    },
+    "ignore": [
+      "**/*.flow.js"
+    ]
+  },
+  "eslintConfig": {
+    "env": {
+      "mocha": true,
+      "node": true
+    },
+    "extends": "airbnb",
+    "parser": "babel-eslint",
+    "plugins": [
+      "flowtype"
+    ],
+    "rules": {
+      "flowtype/define-flow-type": 1,
+      "flowtype/use-flow-type": 1,
+      "no-duplicate-imports": 0,
+      "import/no-extraneous-dependencies": 0,
+      "react/require-extension": 0,
+      "strict": 0
+    }
+  },
+  "nyc": {
+    "lines": 99,
+    "statements": 99,
+    "functions": 99,
+    "branches": 99,
+    "include": [
+      "src/**/*.js"
+    ],
+    "require": [
+      "babel-register"
+    ],
+    "reporter": [
+      "lcov",
+      "text",
+      "text-summary"
+    ],
+    "all": true,
+    "check-coverage": true,
+    "sourceMap": false,
+    "instrument": false
+  }
+}
